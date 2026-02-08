@@ -1,0 +1,345 @@
+/* التنسيقات العامة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #4361ee;
+    --secondary: #3a0ca3;
+    --accent: #7209b7;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --success: #4cc9f0;
+    --gray: #6c757d;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: var(--dark);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+    min-height: 90vh;
+}
+
+/* الهيدر */
+header {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+    padding: 2.5rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* البطاقة الرئيسية */
+.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px;
+}
+
+@media (max-width: 900px) {
+    .card {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-section, .result-section {
+    background: var(--light);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.form-section h2, .result-section h2 {
+    color: var(--secondary);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* حقل الإدخال */
+.input-group {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+#urlInput {
+    flex: 1;
+    padding: 18px 20px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    direction: ltr;
+}
+
+#urlInput:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+#generateBtn {
+    background: linear-gradient(to right, var(--accent), var(--secondary));
+    color: white;
+    border: none;
+    padding: 18px 30px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+#generateBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(114, 9, 183, 0.3);
+}
+
+/* خيارات التخصيص */
+.options {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+}
+
+.options h3 {
+    margin-bottom: 20px;
+    color: var(--dark);
+    font-size: 1.3rem;
+}
+
+.color-options {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.color-input {
+    flex: 1;
+}
+
+.color-input label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: var(--gray);
+}
+
+.color-input input[type="color"] {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px;
+    background: var(--light);
+}
+
+.size-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.size-options label {
+    font-weight: 500;
+    color: var(--gray);
+}
+
+#sizeSelect {
+    padding: 12px 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    flex: 1;
+}
+
+/* منطقة النتيجة */
+.qr-placeholder {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border: 3px dashed #ddd;
+    border-radius: 15px;
+    color: var(--gray);
+}
+
+.qr-placeholder i {
+    font-size: 80px;
+    color: #e9ecef;
+    margin-bottom: 20px;
+}
+
+.qr-placeholder p {
+    font-size: 1.2rem;
+}
+
+.qr-image {
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#generatedQR {
+    max-width: 100%;
+    height: auto;
+    border: 10px solid white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+}
+
+.qr-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.qr-actions button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.download-btn {
+    background: linear-gradient(to right, #00b09b, #96c93d);
+    color: white;
+}
+
+.share-btn {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    color: white;
+}
+
+.reset-btn {
+    background: linear-gradient(to right, #8a2387, #f27121);
+    color: white;
+}
+
+.qr-actions button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* التحميل */
+.loading {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid #e9ecef;
+    border-top: 5px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* المميزات */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 40px;
+    margin-top: 20px;
+}
+
+.feature {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+}
+
+.feature i {
+    font-size: 50px;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.feature p {
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+/* الفوتر */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: var(--dark);
+    color: white;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
